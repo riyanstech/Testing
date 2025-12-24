@@ -472,18 +472,7 @@
 
                 <!-- Sub-tab: Alat Kerja -->
                 <div id="tool-test" class="skill-sub-tab space-y-6">
-                    <!-- Tool Selection Grid -->
-                    <div class="glass-card p-6">
-                        <h3 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Pilih Alat untuk Latihan</h3>
-                        <div class="skill-progress">
-                            <div id="tool-progress-fill" class="skill-progress-fill"></div>
-                        </div>
-                        <div id="tool-test-container" class="skill-test-grid">
-                            <!-- Tools will be loaded here by JavaScript -->
-                        </div>
-                    </div>
-
-                    <!-- Main Tool Practice Area -->
+                    <!-- Main Tool Practice Area - DIPINDAHKAN KE ATAS -->
                     <div class="glass-card p-6">
                         <h3 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Latihan Pengenalan Alat</h3>
                         <div class="flex flex-col lg:flex-row gap-8">
@@ -518,6 +507,21 @@
                                 <div id="tool-answer-result" class="answer-result">
                                     <div id="tool-answer-text"></div>
                                 </div>
+                                
+                                <!-- Navigation controls moved here -->
+                                <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span id="tool-counter" class="text-sm font-semibold text-gray-500">1 / 10</span>
+                                        <div class="control-buttons">
+                                            <button onclick="previousTool()" class="control-btn" id="prev-tool">
+                                                <i data-lucide="chevron-left" class="w-4 h-4"></i> Alat Sebelumnya
+                                            </button>
+                                            <button onclick="nextTool()" class="control-btn" id="next-tool">
+                                                Alat Selanjutnya <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             
                             <!-- Right: Tool Information -->
@@ -542,40 +546,31 @@
                                             <p id="current-tool-function-id" class="text-lg text-gray-700 dark:text-gray-300"></p>
                                         </div>
                                     </div>
-                                    
-                                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                                        <div class="flex justify-between items-center mb-4">
-                                            <span id="tool-counter" class="text-sm font-semibold text-gray-500">1 / 10</span>
-                                            <div class="control-buttons">
-                                                <button onclick="previousTool()" class="control-btn" id="prev-tool">
-                                                    <i data-lucide="chevron-left" class="w-4 h-4"></i> Sebelumnya
-                                                </button>
-                                                <button onclick="nextTool()" class="control-btn" id="next-tool">
-                                                    Selanjutnya <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tool Selection Grid - DIPINDAHKAN KE BAWAH -->
+                    <div class="glass-card p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Pilih Alat untuk Latihan</h3>
+                            <div class="text-sm text-gray-500">
+                                <span class="skill-progress inline-block w-24 h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden mr-3 align-middle">
+                                    <div id="tool-progress-fill" class="skill-progress-fill h-full"></div>
+                                </span>
+                                <span id="tool-progress-text">1/10</span>
+                            </div>
+                        </div>
+                        <div id="tool-test-container" class="skill-test-grid">
+                            <!-- Tools will be loaded here by JavaScript -->
                         </div>
                     </div>
                 </div>
 
                 <!-- Sub-tab: Wawancara -->
                 <div id="interview-test" class="skill-sub-tab hidden space-y-6">
-                    <!-- Interview Questions Selection -->
-                    <div class="glass-card p-6">
-                        <h3 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Pilih Pertanyaan Wawancara</h3>
-                        <div class="skill-progress">
-                            <div id="interview-progress-fill" class="skill-progress-fill"></div>
-                        </div>
-                        <div id="interview-test-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- Interview questions will be loaded here by JavaScript -->
-                        </div>
-                    </div>
-
-                    <!-- Main Interview Practice Area -->
+                    <!-- Main Interview Practice Area - DIPINDAHKAN KE ATAS -->
                     <div class="glass-card p-6">
                         <h3 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Latihan Wawancara</h3>
                         <div class="flex flex-col lg:flex-row gap-8">
@@ -611,6 +606,21 @@
                                 <div id="interview-answer-result" class="answer-result">
                                     <div id="interview-answer-text"></div>
                                 </div>
+                                
+                                <!-- Navigation controls moved here -->
+                                <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span id="interview-counter" class="text-sm font-semibold text-gray-500">1 / 10</span>
+                                        <div class="control-buttons">
+                                            <button onclick="previousInterviewQuestion()" class="control-btn" id="prev-interview">
+                                                <i data-lucide="chevron-left" class="w-4 h-4"></i> Pertanyaan Sebelumnya
+                                            </button>
+                                            <button onclick="nextInterviewQuestion()" class="control-btn" id="next-interview">
+                                                Pertanyaan Selanjutnya <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             
                             <!-- Right: Sample Answer -->
@@ -635,22 +645,24 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                                        <div class="flex justify-between items-center mb-4">
-                                            <span id="interview-counter" class="text-sm font-semibold text-gray-500">1 / 10</span>
-                                            <div class="control-buttons">
-                                                <button onclick="previousInterviewQuestion()" class="control-btn" id="prev-interview">
-                                                    <i data-lucide="chevron-left" class="w-4 h-4"></i> Sebelumnya
-                                                </button>
-                                                <button onclick="nextInterviewQuestion()" class="control-btn" id="next-interview">
-                                                    Selanjutnya <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Interview Questions Selection - DIPINDAHKAN KE BAWAH -->
+                    <div class="glass-card p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Pilih Pertanyaan Wawancara</h3>
+                            <div class="text-sm text-gray-500">
+                                <span class="skill-progress inline-block w-24 h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden mr-3 align-middle">
+                                    <div id="interview-progress-fill" class="skill-progress-fill h-full"></div>
+                                </span>
+                                <span id="interview-progress-text">1/10</span>
+                            </div>
+                        </div>
+                        <div id="interview-test-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Interview questions will be loaded here by JavaScript -->
                         </div>
                     </div>
                 </div>
