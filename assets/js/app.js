@@ -1586,3 +1586,22 @@ function showSkillSubTab(subTabId) {
         initializeSkillTest();
     }
 }
+
+function updateScores() {
+    document.getElementById('tool-score').textContent = toolScore;
+    document.getElementById('interview-score').textContent = interviewScore;
+    
+    // Hitung total score
+    document.getElementById('total-score').textContent = toolScore + interviewScore;
+    
+    // Update progress bars
+    const toolProgress = (currentToolIndex + 1) / totalTools * 100;
+    const interviewProgress = (currentInterviewIndex + 1) / totalInterviews * 100;
+    
+    document.getElementById('tool-progress-fill').style.width = `${toolProgress}%`;
+    document.getElementById('interview-progress-fill').style.width = `${interviewProgress}%`;
+    
+    // Update progress text
+    document.getElementById('tool-progress-text').textContent = `${currentToolIndex + 1}/${totalTools}`;
+    document.getElementById('interview-progress-text').textContent = `${currentInterviewIndex + 1}/${totalInterviews}`;
+}
